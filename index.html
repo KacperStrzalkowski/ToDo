@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/styleSheet.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="taskFieldMain"></div>
+      <button class="settingsButton">
+        <img src="images/add_icon64.svg" alt="" />
+      </button>
+      <div class="promptAlertBg">
+        <div class="promptAlert">
+          <div class="promptMessage"></div>
+          <input type="button" class="accept" value="Zatwierdź" />
+          <input type="button" class="decline" value="Anuluj" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="libs/jquery-3.7.1-min.js"></script>
+  <script type="module" src="/scripts/modules/taskFieldComponents.js"></script>
+  <script type="module" src="/scripts/modules/settings.js"></script>
+  <script type="module" src="/scripts/modules/task.js"></script>
+  <script type="module" src="/scripts/modules/editTaskField.js"></script>
+  <script type="module" src="scripts/main.js"></script>
+</html>
