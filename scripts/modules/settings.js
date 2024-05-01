@@ -32,9 +32,11 @@ function showPrompt(type, taskField = "none") {
     $(".accept")
       .unbind()
       .bind("click", function () {
-        addNewTaskField($(".titleTaskField").val());
-        addFunctions();
-        $(".promptAlertBg").css("display", "none");
+        if ($(".titleTaskField").val().length != 0) {
+          addNewTaskField($(".titleTaskField").val());
+          addFunctions();
+          $(".promptAlertBg").css("display", "none");
+        }
       });
     $(".promptMessage").html(
       "Wpisz tytuł nowej tablicy zadań: <br> <textarea class='titleTaskField'></textarea>"
@@ -113,10 +115,15 @@ function removeTaskField(taskField) {
       );
       let taskNumber = 1;
       do {
-        localStorage.setItem(
-          `${previousTaskField} Task${taskNumber}`,
-          `${localStorage.getItem(`${nextTaskField} Task${taskNumber}`)}`
-        );
+        if (
+          localStorage.getItem(`${nextTaskField} Task${taskNumber}`) != null
+        ) {
+          localStorage.setItem(
+            `${previousTaskField} Task${taskNumber}`,
+            `${localStorage.getItem(`${nextTaskField} Task${taskNumber}`)}`
+          );
+        }
+
         if (
           localStorage.getItem(`${nextTaskField} Task${taskNumber} Checked`) ==
           "true"
